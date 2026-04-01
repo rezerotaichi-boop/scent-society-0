@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scent Society | 香りが紡ぐ、記憶と心のひととき。</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        theme: {
+                            bg: '#F9F8F6',      // オフホワイト・淡いベージュ
+                            main: '#333333',    // チャコールグレー
+                            sub: '#4A3F35',     // ダークブラウン
+                            accent: '#8B7355'   // アンバー・くすんだブラウン
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Noto Serif JP"', 'serif'],
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                    },
+                    spacing: {
+                        '18': '4.5rem',
+                        '22': '5.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* スムーススクロールと全体設定 */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #F9F8F6;
+            color: #333333;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* フォームのプレースホルダー色 */
+        ::placeholder {
+            color: #9CA3AF;
+            font-weight: 300;
+        }
+
+        /* モバイルメニューのトランジション */
+        #mobile-menu {
+            transition: opacity 0.4s ease, visibility 0.4s ease;
+        }
+        #mobile-menu.hidden {
+            opacity: 0;
+            visibility: hidden;
+            display: flex; /* keep flex for layout but hide it visually */
+            pointer-events: none;
+        }
+        #mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body class="font-sans font-light text-theme-main antialiased selection:bg-theme-accent selection:text-white">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-transparent text-white">
+        <div class="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="font-serif text-2xl tracking-[0.2em] uppercase">Scent Society</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-10 text-sm tracking-widest font-sans">
+                <a href="#concept" class="hover:opacity-70 transition-opacity">Concept</a>
+                <a href="#lessons" class="hover:opacity-70 transition-opacity">Lessons</a>
+                <a href="#profile" class="hover:opacity-70 transition-opacity">Profile</a>
+                <a href="#contact" class="hover:opacity-70 transition-opacity">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden focus:outline-none z-50 relative w-8 h-8 flex flex-col justify-center items-center">
+                <span class="bg-current block transition-all duration-300 ease-out h-[1px] w-6 rounded-sm -translate-y-1"></span>
+                <span class="bg-current block transition-all duration-300 ease-out h-[1px] w-6 rounded-sm my-0.5"></span>
+                <span class="bg-current block transition-all duration-300 ease-out h-[1px] w-6 rounded-sm translate-y-1"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="hidden fixed inset-0 bg-theme-bg z-40 flex flex-col justify-center items-center text-theme-main">
+        <nav class="flex flex-col space-y-8 text-center text-lg tracking-widest font-serif">
+            <a href="#concept" class="mobile-link hover:text-theme-accent transition-colors">Concept</a>
+            <a href="#lessons" class="mobile-link hover:text-theme-accent transition-colors">Lessons</a>
+            <a href="#profile" class="mobile-link hover:text-theme-accent transition-colors">Profile</a>
+            <a href="#contact" class="mobile-link hover:text-theme-accent transition-colors">Contact</a>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1920&q=80" alt="Botanical aesthetic background" class="w-full h-full object-cover" />
+            <!-- Overlay to darken the image slightly for text readability -->
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6 mt-16">
+            <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl text-white tracking-[0.15em] leading-loose mb-8">
+                香りが紡ぐ、<br class="md:hidden">記憶と心のひととき。
+            </h1>
+            <p class="font-sans text-white/90 text-sm md:text-base tracking-widest leading-loose max-w-2xl mx-auto font-light">
+                現役大学生の調香師がお届けする、<br>
+                ご高齢者の心に寄り添う香りのレクリエーション。
+            </p>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section id="concept" class="py-32 px-6 md:px-12 bg-theme-bg">
+        <div class="max-w-3xl mx-auto text-center">
+            <span class="block text-theme-accent text-xs tracking-[0.3em] uppercase mb-4">Concept</span>
+            <h2 class="font-serif text-2xl md:text-3xl tracking-widest mb-12 text-theme-main">香りの力</h2>
+            
+            <div class="space-y-8 font-sans text-base md:text-lg text-theme-sub leading-[2.2] md:leading-[2.5] tracking-wide text-justify md:text-center">
+                <p>
+                    ふと漂う香りに、昔の記憶が鮮明に蘇ることはありませんか。<br class="hidden md:block">
+                    香りは脳に直接働きかけ、眠っていた記憶や穏やかな感情を優しく呼び覚まします。
+                </p>
+                <p>
+                    Scent Societyでは、この「回想法」の力に着目し、<br class="hidden md:block">
+                    季節の移ろいや懐かしい日々を感じられる香りを厳選。
+                </p>
+                <p>
+                    施設での日常に、心安らぐ静謐な時間と、ささやかな喜びをお届けします。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lessons Section -->
+    <section id="lessons" class="py-32 px-6 md:px-12 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="block text-theme-accent text-xs tracking-[0.3em] uppercase mb-4">Lessons</span>
+                <h2 class="font-serif text-2xl md:text-3xl tracking-widest text-theme-main">提供している体験</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-12">
+                <!-- Lesson 1 -->
+                <div class="flex flex-col group">
+                    <div class="overflow-hidden aspect-[4/5] mb-8 relative bg-theme-bg">
+                        <img src="https://images.unsplash.com/photo-1608528577891-eb05fcead1ce?auto=format&fit=crop&w=800&q=80" alt="季節を束ねる匂い袋づくり" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    </div>
+                    <h3 class="font-serif text-xl tracking-wider mb-4 border-b border-gray-200 pb-4 text-theme-main">
+                        1. 季節を束ねる匂い袋づくり
+                    </h3>
+                    <p class="font-sans text-theme-sub leading-loose tracking-wide text-sm md:text-base flex-grow">
+                        ドライフラワーや和漢香料を用い、ご自身で香りをブレンドする手仕事の体験。指先を動かしながら、季節の移ろいを手のひらで感じていただきます。
+                    </p>
+                </div>
+
+                <!-- Lesson 2 -->
+                <div class="flex flex-col group">
+                    <div class="overflow-hidden aspect-[4/5] mb-8 relative bg-theme-bg">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="和の香りのハンドトリートメント" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    </div>
+                    <h3 class="font-serif text-xl tracking-wider mb-4 border-b border-gray-200 pb-4 text-theme-main">
+                        2. 和の香りのハンドトリートメント
+                    </h3>
+                    <p class="font-sans text-theme-sub leading-loose tracking-wide text-sm md:text-base flex-grow">
+                        柚子やヒノキなど、日本人にとって馴染み深い香りのオイルを使用。優しいタッチケアとともに、心身の緊張を解きほぐす癒しの時間を提供します。
+                    </p>
+                </div>
+
+                <!-- Lesson 3 -->
+                <div class="flex flex-col group">
+                    <div class="overflow-hidden aspect-[4/5] mb-8 relative bg-theme-bg">
+                        <img src="https://images.unsplash.com/photo-1615397323136-2244243a85df?auto=format&fit=crop&w=800&q=80" alt="記憶を巡る対話型ワークショップ" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    </div>
+                    <h3 class="font-serif text-xl tracking-wider mb-4 border-b border-gray-200 pb-4 text-theme-main">
+                        3. 記憶を巡る対話型ワークショップ
+                    </h3>
+                    <p class="font-sans text-theme-sub leading-loose tracking-wide text-sm md:text-base flex-grow">
+                        様々な香りの小瓶を嗅ぎながら、「昔のおしろいの匂い」「お祭りの日の匂い」など、思い出を語り合う回想法を取り入れたグループワークです。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="py-32 px-6 md:px-12 bg-theme-bg">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-16 md:gap-24">
+            <!-- Image -->
+            <div class="w-full md:w-1/2 aspect-square md:aspect-[3/4] overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?auto=format&fit=crop&w=800&q=80" alt="調香師ポートレート" class="w-full h-full object-cover grayscale-[20%]" />
+            </div>
+            
+            <!-- Text -->
+            <div class="w-full md:w-1/2">
+                <span class="block text-theme-accent text-xs tracking-[0.3em] uppercase mb-4">Profile</span>
+                <h2 class="font-serif text-2xl md:text-3xl tracking-widest mb-10 text-theme-main">調香師について</h2>
+                
+                <div class="space-y-6 font-sans text-base md:text-lg text-theme-sub leading-[2.2] tracking-wide">
+                    <p>
+                        本格的な調香技術を学び、活動する現役大学生。
+                    </p>
+                    <p>
+                        自身の祖母の介護施設を訪れた際、単調になりがちな日常の中で「香り」がもたらす一瞬の輝きや、笑顔と対話の深さに感銘を受け、この活動を立ち上げました。
+                    </p>
+                    <p>
+                        専門的な知識と、若い世代ならではの温かな眼差しで、ご高齢者の方々一人ひとりの心に寄り添う、誠実な時間を提供いたします。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-32 px-6 md:px-12 bg-white">
+        <div class="max-w-2xl mx-auto text-center">
+            <span class="block text-theme-accent text-xs tracking-[0.3em] uppercase mb-4">Contact</span>
+            <h2 class="font-serif text-2xl md:text-3xl tracking-widest mb-8 text-theme-main">ご相談・ご依頼</h2>
+            
+            <p class="font-sans text-theme-sub leading-loose tracking-wide text-sm md:text-base mb-16">
+                施設でのレクリエーション導入について、<br class="hidden md:block">
+                規模やご予算に合わせて柔軟に対応いたします。お気軽にご相談ください。
+            </p>
+
+            <form action="#" method="POST" class="space-y-12 text-left font-sans">
+                <!-- 施設名 -->
+                <div class="relative">
+                    <input type="text" id="facility" name="facility" required class="block w-full border-0 border-b border-gray-300 bg-transparent py-3 text-theme-main focus:border-theme-accent focus:ring-0 sm:text-base transition-colors placeholder-transparent peer" placeholder="施設名">
+                    <label for="facility" class="absolute left-0 -top-4 text-xs text-theme-sub transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-theme-accent tracking-wider">施設名 / 法人名</label>
+                </div>
+                
+                <!-- 担当者名 -->
+                <div class="relative">
+                    <input type="text" id="name" name="name" required class="block w-full border-0 border-b border-gray-300 bg-transparent py-3 text-theme-main focus:border-theme-accent focus:ring-0 sm:text-base transition-colors placeholder-transparent peer" placeholder="ご担当者様名">
+                    <label for="name" class="absolute left-0 -top-4 text-xs text-theme-sub transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-theme-accent tracking-wider">ご担当者様名</label>
+                </div>
+
+                <!-- メールアドレス -->
+                <div class="relative">
+                    <input type="email" id="email" name="email" required class="block w-full border-0 border-b border-gray-300 bg-transparent py-3 text-theme-main focus:border-theme-accent focus:ring-0 sm:text-base transition-colors placeholder-transparent peer" placeholder="メールアドレス">
+                    <label for="email" class="absolute left-0 -top-4 text-xs text-theme-sub transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-theme-accent tracking-wider">メールアドレス</label>
+                </div>
+
+                <!-- お問い合わせ内容 -->
+                <div class="relative pt-2">
+                    <textarea id="message" name="message" rows="4" required class="block w-full border-0 border-b border-gray-300 bg-transparent py-3 text-theme-main focus:border-theme-accent focus:ring-0 sm:text-base transition-colors placeholder-transparent peer resize-none" placeholder="お問い合わせ内容"></textarea>
+                    <label for="message" class="absolute left-0 -top-2 text-xs text-theme-sub transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-4 peer-focus:-top-2 peer-focus:text-xs peer-focus:text-theme-accent tracking-wider">お問い合わせ内容</label>
+                </div>
+
+                <!-- 送信ボタン -->
+                <div class="text-center pt-8">
+                    <button type="submit" class="inline-block border border-theme-main px-12 py-4 font-sans text-sm tracking-[0.2em] text-theme-main hover:bg-theme-main hover:text-white transition-all duration-300">
+                        送信する
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-theme-bg border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
+            <span class="font-serif text-xl tracking-[0.2em] uppercase mb-6 text-theme-main">Scent Society</span>
+            <p class="text-xs text-gray-400 tracking-widest font-sans">
+                &copy; 2026 Scent Society. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.getElementById('header');
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const menuSpans = menuBtn.querySelectorAll('span');
+
+            // ヘッダーのスクロールエフェクト
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    header.classList.remove('bg-transparent', 'text-white', 'py-6');
+                    header.classList.add('bg-theme-bg/95', 'backdrop-blur-sm', 'text-theme-main', 'py-4', 'shadow-sm');
+                } else {
+                    // モバイルメニューが開いているときは透明に戻さない
+                    if (!mobileMenu.classList.contains('active')) {
+                        header.classList.add('bg-transparent', 'text-white', 'py-6');
+                        header.classList.remove('bg-theme-bg/95', 'backdrop-blur-sm', 'text-theme-main', 'py-4', 'shadow-sm');
+                    }
+                }
+            };
+
+            window.addEventListener('scroll', handleScroll);
+
+            // モバイルメニューのトグル
+            const toggleMenu = () => {
+                const isActive = mobileMenu.classList.contains('active');
+                
+                if (!isActive) {
+                    // 開く処理
+                    mobileMenu.classList.remove('hidden');
+                    // setTimeout to allow display:flex to apply before setting opacity
+                    setTimeout(() => {
+                        mobileMenu.classList.add('active');
+                    }, 10);
+                    
+                    // ハンバーガーアイコンのアニメーション（×にする）
+                    menuSpans[0].classList.add('rotate-45', 'translate-y-[6px]');
+                    menuSpans[1].classList.add('opacity-0');
+                    menuSpans[2].classList.add('-rotate-45', '-translate-y-[6px]');
+                    
+                    // ヘッダーの色を強制的に変更
+                    header.classList.remove('text-white');
+                    header.classList.add('text-theme-main');
+                } else {
+                    // 閉じる処理
+                    mobileMenu.classList.remove('active');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('hidden');
+                    }, 400); // transition duration と合わせる
+                    
+                    // ハンバーガーアイコンを元に戻す
+                    menuSpans[0].classList.remove('rotate-45', 'translate-y-[6px]');
+                    menuSpans[1].classList.remove('opacity-0');
+                    menuSpans[2].classList.remove('-rotate-45', '-translate-y-[6px]');
+                    
+                    // スクロール位置に応じてヘッダーの色を再評価
+                    handleScroll();
+                }
+            };
+
+            menuBtn.addEventListener('click', toggleMenu);
+
+            // モバイルリンクをクリックした時にメニューを閉じる
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', toggleMenu);
+            });
+            
+            // 入力フォームのラベルアニメーション用の調整（初期値がある場合など）
+            const inputs = document.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                // ブラウザのオートフィル対応
+                setTimeout(() => {
+                    if(input.value !== '') {
+                        input.classList.remove('placeholder-transparent');
+                    }
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
